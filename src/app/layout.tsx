@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "The blog - This is a blog with Next.js",
-  description: "Description of the app",
+  title: 'The blog - This is a blog with Next.js',
+  description: 'Description of the app',
 };
 
 type RootLayoutProps = {
@@ -12,18 +12,8 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
-    <html lang="en">
-      <body>
-        <header>
-          <h1>Header - Welcome to the Blog</h1>
-        </header>
-
-        <div className="bg-red-500">{children}</div>
-
-        <footer>
-          <h1>Footer</h1>
-        </footer>
-      </body>
+    <html lang='en'>
+      <body>{children}</body>
     </html>
   );
 }

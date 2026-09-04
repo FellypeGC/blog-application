@@ -1,12 +1,12 @@
-import { Header } from '@/components/Header';
+import { SpinLoader } from '@/components/SpinLoader';
+import clsx from 'clsx';
 
 // page.tsx (server) -> menu.tsx (server) -> link (client)
 
 export default function HomePage() {
-  console.log('homepage')
   return (
     <div>
-      <Header />
+      <SpinLoader className={clsx('min-h-[500px]', 'bg-amber-500')} />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { SpinLoader } from '@/components/SpinLoader';
 import { Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { PostHeading } from '@/components/PostHeading';
 
 // page.tsx (server) -> menu.tsx (server) -> link (client)
 
@@ -31,11 +32,9 @@ export default async function HomePage() {
             20/04/2025 10:00
           </time>
 
-          <h1 className='text-2xl/tight mb-4 font-extrabold sm:text-4xl'>
-            <Link href='#'>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </Link>
-          </h1>
+          <PostHeading as='h1' url='#'>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </PostHeading>
 
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi

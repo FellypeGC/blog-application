@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Container } from '@/components/Container';
+import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: { 
+  title: {
     default: 'The blog - This is a blog with Next.js',
-    template: '%s | The blog'
+    template: '%s | The blog',
   },
   description: 'Description of the app',
 };
@@ -24,11 +25,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
 
           {children}
 
-          <footer>
-            <p className='text-6xl font-bold text-center py-8'>
-              AQUI É O FOOTER
-            </p>
-          </footer>
+          <Footer />
         </Container>
       </body>
     </html>

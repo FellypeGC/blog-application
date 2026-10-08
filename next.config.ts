@@ -5,7 +5,11 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   experimental: {
     turbopackRustReactCompiler: true,
-  }
+  },
+  output: 'export',
+  images: {
+    unoptimized: false,
+  },
 };
 
 export default nextConfig;

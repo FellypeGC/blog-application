@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   },
   output: 'export',
   images: {
-    unoptimized: false,
+    unoptimized: true,
   },
 };
 

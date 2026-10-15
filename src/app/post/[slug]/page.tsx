@@ -20,17 +20,6 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
-  const posts = await findAllPublicPostsCached();
-  const params = posts.map(post => {
-    return {
-      slug: post.slug,
-    };
-  });
-
-  return params;
-}
-
 export default async function PostSlugPage({ params }: PostSlugPageProps) {
   const { slug } = await params;
 

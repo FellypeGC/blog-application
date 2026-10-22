@@ -4,7 +4,7 @@ import { formatHour } from '@/utils/format-datetime';
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  return [{ id: 1 }, { id: 2 }];
+  return [{ id: '1' }, { id: '2' }];
 }
 
 export default async function ExampleDynamicPage({

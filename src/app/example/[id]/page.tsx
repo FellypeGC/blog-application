@@ -1,7 +1,8 @@
+import { revalidateExampleActions } from '@/actions/revalidate-example';
 import { formatHour } from '@/utils/format-datetime';
 
 export const dynamic = 'force-static';
-export const revalidate = 10; 
+// export const revalidate = 10;
 // export const dynamicParams = true;
 
 // export async function generateStaticParams() {
@@ -21,6 +22,12 @@ export default async function ExampleDynamicPage({
       <div>
         Hora: {hour} (ID: { id })
       </div>
+
+      <form className='py-16' action={revalidateExampleActions}>
+        <input type="hidden" name='path' defaultValue={`/example/${id}`} />
+
+        <button className='bg-amber-500 text-white p-2 rounded hover:bg-amber-600 transition cursor-pointer' type="submit">Revalidate</button>
+      </form>
     </main>
   );
 }

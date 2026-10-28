@@ -7,5 +7,5 @@ export async function revalidateExampleActions(formData: FormData) {
   console.log('Im in a server action', path);
 
   // revalidatePath(`${path}`);
-  revalidateTag('ExemploDynamicPage', { expire: 10 });
+  revalidateTag('formatHourCached', { expire: 0 });
 }

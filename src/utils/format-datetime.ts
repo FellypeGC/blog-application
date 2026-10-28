@@ -35,5 +35,6 @@ export async function formatHourCached() {
   'use cache';
   cacheLife('seconds');
   cacheTag('formatHourCached');
+  
   return formatHour(Date.now());
 }

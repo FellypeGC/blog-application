@@ -23,7 +23,7 @@ export function InputText({ labelText = '', ...props }: InputTextProps) {
           'p-2 transition focus:ring-blue-600',
           'placeholder-slate-300',
           'disabled:bg-slate-200',
-          'disabled:bg-slate-400',
+          'disabled:text-slate-400',
           'disabled:placeholder-slate-300',
           'read-only:bg-slate-100',
           props.className,

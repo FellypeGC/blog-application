@@ -1,6 +1,6 @@
 'use server';
 
-import { PublicPost } from "@/dto/post/dto";
+import { PublicPost } from '@/dto/post/dto';
 
 type CreatePostActionState = {
   formState: PublicPost;
@@ -9,15 +9,19 @@ type CreatePostActionState = {
 
 export async function createPostAction(
   prevState: CreatePostActionState,
-  formData: FormData
+  formData: FormData,
 ): Promise<CreatePostActionState> {
-  const title = formData.get('title')?.toString() || '';
+  if (!(formData instanceof FormData)) {
+    return {
+      formState: prevState.formState,
+      errors: ['Dados inválidos'],
+    };
+  }
+
+  const formDataToObj = Object.fromEntries(formData.entries());
 
   return {
-    formState: {
-      ...prevState.formState,
-      title
-    },
+    formState: prevState.formState,
     errors: [],
   };
 }

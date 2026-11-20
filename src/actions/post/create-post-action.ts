@@ -24,7 +24,7 @@ export async function createPostAction(
   }
 
   const formDataToObj = Object.fromEntries(formData.entries());
-  const zodParsedObj = PostCreateSchema.safeParse(formData);
+  const zodParsedObj = PostCreateSchema.safeParse(formDataToObj);
 
   if (!zodParsedObj.success) {
     const errors = getZodErrorMessages(zodParsedObj.error);

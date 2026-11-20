@@ -73,7 +73,7 @@ export function ManagePostForm({ publicPost }: ManagePostFormProps) {
 
         <InputText
           labelText='Excerto'
-          name='excerp'
+          name='excerpt'
           placeholder='Digite o resumo'
           type='text'
           defaultValue={formState.excerpt}

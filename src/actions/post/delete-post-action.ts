@@ -11,16 +11,9 @@ export async function deletePostAction(id: string) {
     };
   }
 
-  const post = await postRepository.findById(id).catch(() => undefined);
-
-  if (!post) {
-    return {
-      error: 'Post não existe',
-    }
-  }
-
+  let post;
   try {
-    await postRepository.delete(id);
+    post = await postRepository.delete(id);
   } catch (error) {
     if (error instanceof Error) {
       return {

@@ -7,4 +7,5 @@ export interface PostRepository {
   findById(id: string): Promise<PostModel | undefined>;
 
   create(post: PostModel): Promise<PostModel>;
+  delete(id: string): Promise<PostModel>;
 }

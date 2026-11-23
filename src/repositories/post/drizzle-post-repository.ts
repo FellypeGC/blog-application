@@ -90,7 +90,7 @@ export class DrizzlePostRepository implements PostRepository {
 
   async update(
     id: string,
-    newPostData: Omit<PostModel, 'id' | 'slug' | 'createdAt'>,
+    newPostData: Omit<PostModel, 'id' | 'slug' | 'createdAt' | 'updatedAt'>,
   ): Promise<PostModel> {
     const oldPost = await drizzleDb.query.posts.findFirst({
       where: (posts, { eq }) => eq(posts.id, id),

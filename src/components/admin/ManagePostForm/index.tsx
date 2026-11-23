@@ -53,6 +53,13 @@ export function ManagePostForm(props: ManagePostFormProps) {
     }
   }, [state.errors]);
 
+  useEffect(() => {
+    if (state.success) {
+      toast.dismiss();
+      toast.success('Post atualizado com sucesso!');
+    }
+  }, [state.success]);
+
   const { formState } = state;
   const [contentValue, setContentValue] = useState(publicPost?.content || '');
 

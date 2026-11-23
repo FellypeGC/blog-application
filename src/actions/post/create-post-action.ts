@@ -13,6 +13,7 @@ import { v4 as uuidV4 } from 'uuid';
 type CreatePostActionState = {
   formState: PublicPost;
   errors: string[];
+  success?: true;
 };
 
 export async function createPostAction(
@@ -35,7 +36,7 @@ export async function createPostAction(
     return {
       errors,
       formState: makePartialPublicPost(formDataToObj),
-    }
+    };
   }
 
   const validPostData = zodParsedObj.data;
@@ -46,7 +47,6 @@ export async function createPostAction(
     id: uuidV4(),
     slug: makeSlugFromText(validPostData.title),
   };
-
 
   try {
     await postRepository.create(newPost);

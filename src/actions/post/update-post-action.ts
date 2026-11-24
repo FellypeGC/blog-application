@@ -1,21 +1,29 @@
 'use server';
 
-import { makePartialPublicPost, makePublicPostFromDb, PublicPost } from '@/dto/post/dto';
+import {
+  makePartialPublicPost,
+  makePublicPostFromDb,
+  PublicPost,
+} from '@/dto/post/dto';
 import { PostUpdateSchema } from '@/lib/post/validation';
 import { postRepository } from '@/repositories/post';
+import { asyncDelay } from '@/utils/async-delay';
 import { getZodErrorMessages } from '@/utils/get-zod-error-messages';
-import {  updateTag } from 'next/cache';
+import { makeRandomString } from '@/utils/make-random-string';
+import { updateTag } from 'next/cache';
 
 type UpdatePostActionState = {
   formState: PublicPost;
   errors: string[];
-  success?: true;
+  success?: string;
 };
 
 export async function updatePostAction(
   prevState: UpdatePostActionState,
   formData: FormData,
 ): Promise<UpdatePostActionState> {
+  await asyncDelay(3000);
+
   if (!(formData instanceof FormData)) {
     return {
       formState: prevState.formState,
@@ -41,7 +49,7 @@ export async function updatePostAction(
     return {
       errors,
       formState: makePartialPublicPost(formDataToObj),
-    }
+    };
   }
 
   const validPostData = zodParsedObj.data;
@@ -72,6 +80,6 @@ export async function updatePostAction(
   return {
     formState: makePublicPostFromDb(post),
     errors: [],
-    success: true,
-  }
+    success: makeRandomString(),
+  };
 }

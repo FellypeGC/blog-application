@@ -17,8 +17,8 @@ export async function loginAction(state: LoginActionState, formData: FormData) {
     };
   }
 
-  const username = formData.get('username')?.toString() || '';
-  const password = formData.get('password')?.toString() || '';
+  const username = formData.get('username')?.toString().trim() || '';
+  const password = formData.get('password')?.toString().trim() || '';
 
   const isUsernameValid = username === process.env.LOGIN_USER;
   const isPasswordValid = '';

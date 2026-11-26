@@ -12,6 +12,6 @@ export async function loginAction(state: LoginActionState, formData: FormData) {
 
   return {
     username: '',
-    error: ''
+    error: 'Teste de erro'
   }
 }

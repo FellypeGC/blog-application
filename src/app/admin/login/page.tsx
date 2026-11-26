@@ -8,7 +8,11 @@ import { useActionState } from 'react';
 export const dynamic = 'force-dynamic';
 
 export default async function AdminLoginPage() {
-  const [state, action, isPending] = useActionState(loginAction, undefined);
+  const initialState = {
+    username: '',
+    error: '',
+  }
+  const [state, action, isPending] = useActionState(loginAction, initialState);
 
   return (
     <div
@@ -17,7 +21,7 @@ export default async function AdminLoginPage() {
         'text-center max-w-sm mt-16 mb-32 mx-auto',
       )}
     >
-      <form action='' className='flex-1 flex flex-col gap-6'>
+      <form action={action} className='flex-1 flex flex-col gap-6'>
         <InputText
           labelText='Usuário'
           name='username'

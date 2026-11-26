@@ -1,7 +1,17 @@
 'use server';
 
-import { asyncDelay } from "@/utils/async-delay";
+import { asyncDelay } from '@/utils/async-delay';
 
-export async function loginAction() {
+type LoginActionState = {
+  username: string;
+  error: string;
+};
+
+export async function loginAction(state: LoginActionState, formData: FormData) {
   await asyncDelay(5000);
+
+  return {
+    username: '',
+    error: ''
+  }
 }

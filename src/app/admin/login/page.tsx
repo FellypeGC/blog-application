@@ -1,11 +1,15 @@
+import { loginAction } from '@/actions/login/login-action';
 import { Button } from '@/components/Button';
 import { InputText } from '@/components/InputText';
 import clsx from 'clsx';
 import { LogInIcon } from 'lucide-react';
+import { useActionState } from 'react';
 
 export const dynamic = 'force-dynamic';
 
 export default async function AdminLoginPage() {
+  const [state, action, isPending] = useActionState(loginAction, undefined);
+
   return (
     <div
       className={clsx(
@@ -19,7 +23,7 @@ export default async function AdminLoginPage() {
           name='username'
           placeholder='Seu usuário'
           type='text'
-          disabled={false}
+          disabled={isPending}
         />
 
         <InputText
@@ -27,10 +31,10 @@ export default async function AdminLoginPage() {
           name='password'
           placeholder='Sua senha'
           type='password'
-          disabled={false}
+          disabled={isPending}
         />
 
-        <Button disabled={false} type='submit' className='mt-4'>
+        <Button disabled={isPending} type='submit' className='mt-4'>
           <LogInIcon />
           Enviar
         </Button>

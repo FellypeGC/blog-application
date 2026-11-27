@@ -99,9 +99,9 @@ export function MenuAdmin() {
         {!isPending && (
           <>
             <LogOutIcon />
+            Sair
           </>
         )}
-        Sair
       </a>
     </nav>
   );

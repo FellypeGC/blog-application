@@ -44,6 +44,15 @@ export async function deleteLoginSession() {
   cookieStore.delete(loginCookieName);
 }
 
+export async function getLoginSession() {
+  const cookieStore = await cookies();
+  const jwt = cookieStore.get(loginCookieName)?.value;
+
+  if (!jwt) return false;
+
+  return verifyJwt(jwt);
+}
+
 export async function signJwt(jwtPayload: JwtPayload) {
   return new SignJWT(jwtPayload)
     .setProtectedHeader({
